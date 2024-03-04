@@ -1,16 +1,13 @@
 #!/usr/bin/python3
-"""Module for Base class
-Contains the Base class for the AirBnB clone console.
-"""
+"""Base Class Module"""
 
 import uuid
 from datetime import datetime
 from models import storage
 
-
 class BaseModel:
 
-    """Class for base model of object hierarchy."""
+    """Object hierarchy."""
 
     def __init__(self, *args, **kwargs):
         """Initialization of a Base instance.
@@ -37,7 +34,7 @@ class BaseModel:
             storage.new(self)
 
     def __str__(self):
-        """Returns a human-readable string representation
+        """Returns a readable string representation
         of an instance."""
 
         return "[{}] ({}) {}".\
