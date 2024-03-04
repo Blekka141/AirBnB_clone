@@ -16,7 +16,7 @@ The command interpreter is designed to manage the Airbnb objects of our project:
    ```bash
    ./console.py
 
-### How to Use It
+#### How to Use It
 
 1. create: Creates a new instance of BaseModel, saves it (to the JSON file) and prints the id.
 2. show: Prints the string representation of an instance based on the class name and id.
@@ -24,7 +24,7 @@ The command interpreter is designed to manage the Airbnb objects of our project:
 4. destroy: Deletes an instance based on the class name and id.
 5. update: Updates an instance based on the class name and id by adding or updating attribute.
 
-### Examples
+#### Examples
 1. (hbnb) create BaseModel
 2. (hbnb) show BaseModel 1234-1234-1234
 3. (hbnb) all BaseModel
