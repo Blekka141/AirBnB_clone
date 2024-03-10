@@ -5,8 +5,8 @@ import uuid
 from datetime import datetime
 from models import storage
 
-class BaseModel:
 
+class BaseModel:
     """Object hierarchy."""
 
     def __init__(self, *args, **kwargs):
