@@ -51,11 +51,19 @@ class FileStorage:
         """Deserializes JSON file into __objects."""
         if not os.path.isfile(FileStorage.__file_path):
             return
-        with open(FileStorage.__file_path, "r", encoding="utf-8") as f:
-            obj_dict = json.load(f)
-            obj_dict = {k: self.classes()[v["__class__"]](**v)
-                        for k, v in obj_dict.items()}
-            # TODO: should this overwrite or insert?
+    
+        # Initialize an empty object dictionary to safely handle errors
+        obj_dict = {}
+        try:
+            with open(FileStorage.__file_path, "r", encoding="utf-8") as f:
+            # Load the JSON only if the file is not empty
+                if os.stat(FileStorage.__file_path).st_size > 0:
+                    obj_dict = json.load(f)
+                    obj_dict = {k: self.classes()[v["__class__"]](**v) for k, v in obj_dict.items()}
+        except json.JSONDecodeError:
+            print("Error loading JSON from file.")
+            # Optionally, log the error or handle it as needed
+        
             FileStorage.__objects = obj_dict
 
     def attributes(self):
